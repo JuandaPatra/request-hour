@@ -12,8 +12,6 @@ export default function ActionButtons() {
       {/* ── VOTE Button (large, maroon, pulsing glow) ── */}
       <a
   href="https://rh26.jkt48.com/"
-  target="_blank"
-  rel="noopener noreferrer"
   id="btn-vote"
   className="btn-vote pixel-border w-full relative overflow-hidden group block text-center no-underline"
   style={{
