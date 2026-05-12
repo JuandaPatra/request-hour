@@ -10,10 +10,12 @@ export default function ActionButtons() {
     <div className="flex flex-col items-center gap-3 w-full px-4">
 
       {/* ── VOTE Button (large, maroon, pulsing glow) ── */}
-      <Link href="https://rh26.jkt48.com/" target="_blank">
-      <button
+      <a 
+        href="https://rh26.jkt48.com/" 
+        target="_blank" 
+        rel="noopener noreferrer"
         id="btn-vote"
-        className="btn-vote pixel-border w-full relative overflow-hidden group"
+        className="btn-vote pixel-border w-full relative overflow-hidden group block text-center text-decoration-none"
         style={{
           background: "linear-gradient(180deg, var(--maroon-light) 0%, var(--maroon) 50%, var(--maroon-dark) 100%)",
           padding: "14px 16px",
@@ -52,14 +54,15 @@ export default function ActionButtons() {
         >
           [ VOTE AME NO PIANIST ]
         </span>
-      </button>
-      </Link>
+      </a>
 
       {/* ── Spotify Button ── */}
-      <Link href="https://open.spotify.com/track/77xjdd1jftQGgn7Zor1nxM?si=39c8952c1a4540ef" target="_blank">
-      <button
+      <a 
+        href="https://open.spotify.com/track/77xjdd1jftQGgn7Zor1nxM?si=39c8952c1a4540ef" 
+        target="_blank" 
+        rel="noopener noreferrer"
         id="btn-spotify"
-        className="pixel-border w-full relative overflow-hidden group"
+        className="pixel-border w-full relative overflow-hidden group text-decoration-none"
         style={{
           background: "linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%)",
           padding: "11px 16px",
@@ -112,14 +115,15 @@ export default function ActionButtons() {
         >
           [ DENGARKAN DI SPOTIFY ]
         </span>
-      </button>
-      </Link>
+      </a>
 
       {/* ── YouTube Button ── */}
-      <Link href="https://www.youtube.com/watch?v=ngyy4XJr5E0" target="_blank">
-      <button
+      <a 
+        href="https://www.youtube.com/watch?v=ngyy4XJr5E0" 
+        target="_blank" 
+        rel="noopener noreferrer"
         id="btn-youtube"
-        className="pixel-border w-full relative overflow-hidden group"
+        className="pixel-border w-full relative overflow-hidden group text-decoration-none"
         style={{
           background: "linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%)",
           padding: "11px 16px",
@@ -170,8 +174,7 @@ export default function ActionButtons() {
         >
           [ PREVIEW YOUTUBE ]
         </span>
-      </button>
-      </Link>
+      </a>
     </div>
   );
 }
