@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "JKT48 Request Hour 2026 – Dukung Lagu Favorit Kamu",
+  title: "JKT48 Request Hour 2026 – Vote Ame No Pianist",
   description:
-    "Dukung lagu favoritmu di JKT48 Request Hour 2026! Vote sekarang dan bantu wujudkan impian bersama.",
+    "Dukung Cynthia di JKT48 Request Hour 2026! Vote lagu ame no pianist sekarang dan bantu wujudkan impian bersama.",
   openGraph: {
     title: "JKT48 Request Hour 2026",
-    description: "Vote sekarang! Dukung lagu favoritmu.",
+    description: "Vote sekarang! Dukung Cynthia Yaputera.",
     type: "website",
   },
 };
