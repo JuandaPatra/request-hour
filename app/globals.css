@@ -1,26 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
+/* ─── Design Tokens ─────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gold: #c9a84c;
+  --gold-light: #f0d080;
+  --gold-dark: #8b6914;
+  --maroon: #7b1c2e;
+  --maroon-light: #a52340;
+  --maroon-dark: #4a0f1b;
+  --charcoal: #141414;
+  --charcoal-mid: #1c1c1c;
+  --charcoal-light: #242424;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-elegant: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-maroon: var(--maroon);
+  --color-charcoal: var(--charcoal);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Base Reset ────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--charcoal);
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Art Deco SVG Background ───────────────────────────────────────────── */
+.bg-art-deco {
+  background-color: var(--charcoal);
+  background-image:
+    /* Diagonal lines top-left */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 80 L80 0' stroke='%23c9a84c' stroke-width='0.3' opacity='0.18'/%3E%3Cpath d='M-20 80 L80 -20' stroke='%23c9a84c' stroke-width='0.2' opacity='0.1'/%3E%3Cpath d='M20 80 L80 20' stroke='%23c9a84c' stroke-width='0.2' opacity='0.1'/%3E%3C/svg%3E"),
+    /* Corner diamond motifs */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect x='70' y='70' width='20' height='20' fill='none' stroke='%23c9a84c' stroke-width='0.6' opacity='0.15' transform='rotate(45 80 80)'/%3E%3Crect x='60' y='60' width='40' height='40' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.1' transform='rotate(45 80 80)'/%3E%3C/svg%3E");
+  background-size: 80px 80px, 160px 160px;
+}
+
+/* ─── Pixel Music Notes ─────────────────────────────────────────────────── */
+.music-notes-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.music-note {
+  position: absolute;
+  color: var(--gold);
+  opacity: 0.06;
+  font-size: 20px;
+  font-family: serif;
+  user-select: none;
+}
+
+/* ─── Scrolling Banner ──────────────────────────────────────────────────── */
+@keyframes scroll-text {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.scroll-text {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: scroll-text 22s linear infinite;
+  will-change: transform;
+}
+
+/* ─── Card Float ────────────────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+.card-float {
+  animation: float 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ─── Piano Key Press Animation ─────────────────────────────────────────── */
+@keyframes key-press-1 {
+  0%, 100% { transform: scaleY(1); }
+  30%, 60% { transform: scaleY(0.93); }
+}
+@keyframes key-press-2 {
+  0%, 40%, 100% { transform: scaleY(1); }
+  55%, 75% { transform: scaleY(0.93); }
+}
+@keyframes key-press-3 {
+  0%, 20%, 100% { transform: scaleY(1); }
+  40%, 65% { transform: scaleY(0.93); }
+}
+@keyframes finger-1 {
+  0%, 100% { transform: translateY(0); }
+  30%, 60% { transform: translateY(2px); }
+}
+@keyframes finger-2 {
+  0%, 40%, 100% { transform: translateY(0); }
+  55%, 75% { transform: translateY(2px); }
+}
+@keyframes finger-3 {
+  0%, 20%, 100% { transform: translateY(0); }
+  40%, 65% { transform: translateY(2px); }
+}
+.piano-key-1 { animation: key-press-1 2.4s ease-in-out infinite; transform-origin: top; }
+.piano-key-2 { animation: key-press-2 2.4s ease-in-out infinite; transform-origin: top; }
+.piano-key-3 { animation: key-press-3 2.4s ease-in-out infinite; transform-origin: top; }
+.piano-finger-1 { animation: finger-1 2.4s ease-in-out infinite; }
+.piano-finger-2 { animation: finger-2 2.4s ease-in-out infinite; }
+.piano-finger-3 { animation: finger-3 2.4s ease-in-out infinite; }
+
+/* ─── Vote Button Pulse Glow ────────────────────────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 8px 2px rgba(201,168,76,0.3),
+      0 0 20px 4px rgba(123,28,46,0.4),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 20px 6px rgba(201,168,76,0.6),
+      0 0 40px 10px rgba(123,28,46,0.6),
+      inset 0 1px 0 rgba(255,255,255,0.15);
   }
 }
+.btn-vote {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── Countdown Tick ────────────────────────────────────────────────────── */
+@keyframes tick-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.countdown-sep { animation: tick-flash 1s step-start infinite; }
+
+/* ─── Pixel Border (retro 3D) ───────────────────────────────────────────── */
+.pixel-border {
+  border: 2px solid var(--gold);
+  box-shadow:
+    2px 2px 0 0 var(--gold-dark),
+    inset 0 0 0 1px rgba(201,168,76,0.15);
+}
+
+/* ─── Gold Text Shimmer ─────────────────────────────────────────────────── */
+@keyframes gold-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.gold-shimmer {
+  background: linear-gradient(90deg,
+    var(--gold-dark) 0%,
+    var(--gold-light) 40%,
+    var(--gold) 50%,
+    var(--gold-light) 60%,
+    var(--gold-dark) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gold-shimmer 3s linear infinite;
+}
+
+/* ─── Card Glow ─────────────────────────────────────────────────────────── */
+.card-glow {
+  filter: drop-shadow(0 8px 24px rgba(201,168,76,0.25)) drop-shadow(0 2px 8px rgba(0,0,0,0.8));
 }
