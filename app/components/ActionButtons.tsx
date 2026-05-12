@@ -125,7 +125,7 @@ export default function ActionButtons() {
         </span>
       </a>
 
-      <a href="https://rh26.jkt48.com/" target="_blank">
+      <a href="https://rh26.jkt48.com/">
   TEST
 </a>
 
