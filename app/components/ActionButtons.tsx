@@ -10,51 +10,59 @@ export default function ActionButtons() {
     <div className="flex flex-col items-center gap-3 w-full px-4">
 
       {/* ── VOTE Button (large, maroon, pulsing glow) ── */}
-      <a 
-        href="https://rh26.jkt48.com/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        id="btn-vote"
-        className="btn-vote pixel-border w-full relative overflow-hidden group block text-center text-decoration-none"
-        style={{
-          background: "linear-gradient(180deg, var(--maroon-light) 0%, var(--maroon) 50%, var(--maroon-dark) 100%)",
-          padding: "14px 16px",
-          cursor: "pointer",
-          borderRadius: "4px",
-          border: "2px solid var(--gold)",
-          maxWidth: "340px",
-        }}
-        aria-label="Vote Ame no Pianist"
-      >
-        {/* Scanline overlay */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px)",
-            borderRadius: "2px",
-          }}
-        />
-        {/* Hover shine */}
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-          style={{
-            background: "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 60%)",
-          }}
-        />
-        <span
-          style={{
-            fontFamily: "'Press Start 2P', monospace",
-            fontSize: "clamp(8px, 2.5vw, 12px)",
-            color: "var(--gold-light)",
-            letterSpacing: "0.05em",
-            textShadow: "0 0 10px rgba(240,208,128,0.6), 2px 2px 0 rgba(0,0,0,0.5)",
-            display: "block",
-            lineHeight: 1.5,
-          }}
-        >
-          [ VOTE AME NO PIANIST ]
-        </span>
-      </a>
+      <a
+  href="https://rh26.jkt48.com/"
+  target="_blank"
+  rel="noopener noreferrer"
+  id="btn-vote"
+  className="btn-vote pixel-border w-full relative overflow-hidden group block text-center no-underline"
+  style={{
+    background:
+      "linear-gradient(180deg, var(--maroon-light) 0%, var(--maroon) 50%, var(--maroon-dark) 100%)",
+    padding: "14px 16px",
+    cursor: "pointer",
+    borderRadius: "4px",
+    border: "2px solid var(--gold)",
+    maxWidth: "340px",
+    zIndex: 1,
+  }}
+>
+  <div
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      backgroundImage:
+        "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px)",
+      borderRadius: "2px",
+      zIndex: 1,
+    }}
+  />
+
+  <div
+    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+    style={{
+      background:
+        "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 60%)",
+      zIndex: 1,
+    }}
+  />
+
+  <span
+    className="relative"
+    style={{
+      zIndex: 2,
+      fontFamily: "'Press Start 2P', monospace",
+      fontSize: "clamp(8px, 2.5vw, 12px)",
+      color: "var(--gold-light)",
+      letterSpacing: "0.05em",
+      textShadow:
+        "0 0 10px rgba(240,208,128,0.6), 2px 2px 0 rgba(0,0,0,0.5)",
+      display: "block",
+      lineHeight: 1.5,
+    }}
+  >
+    [ VOTE AME NO PIANIST ]
+  </span>
+</a>
 
       {/* ── Spotify Button ── */}
       <a 
