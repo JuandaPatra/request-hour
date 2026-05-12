@@ -125,6 +125,10 @@ export default function ActionButtons() {
         </span>
       </a>
 
+      <a href="https://rh26.jkt48.com/" target="_blank">
+  TEST
+</a>
+
       {/* ── YouTube Button ── */}
       <a 
         href="https://www.youtube.com/watch?v=ngyy4XJr5E0" 
